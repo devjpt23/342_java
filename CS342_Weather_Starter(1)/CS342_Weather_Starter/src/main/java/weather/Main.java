@@ -7,33 +7,27 @@ import java.net.http.HttpResponse;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import weather.model.Location;
 
 import static java.lang.IO.println;
-
-// STARTER CODE:
-// This class intentionally contains several responsibilities.
-// Refactor it into the required model, provider, service, and CLI packages.
-
-//we need to get this record in a different file, we'll import to this file later
-record TargetLocation(String city, String lat, String lon) {}
 
 public class Main {
 
     public static void main(String[] args) {
         println("🌤️ Initializing Real-Time Multi-City Weather Service...");
         // this can stay in this file.
-        List<TargetLocation> locations = List.of(
-                new TargetLocation("Chicago", "41.85", "-87.65"),
-                new TargetLocation("Los Angeles", "34.05", "-118.24"),
-                new TargetLocation("New York", "40.71", "-74.01")
+        List<Location> locations = List.of(
+                new Location("Chicago", "41.85", "-87.65"),
+                new Location("Los Angeles", "34.05", "-118.24"),
+                new Location("New York", "40.71", "-74.01")
         );
-        // this needs to be in a differnet file as a
+        // this needs to be in a different file as a
         // what needs to happen:
         // 1. create an interface say 'weatherINformationProvider', this interface needs to implement the key methods that will need to be used.
         // 2. then create a class that implements this interface, we can name that class openMeteoProvider. implement those methods by overrideing the interface
         // 3. then we can import class to this file to use as a provider.
         try (HttpClient client = HttpClient.newHttpClient()) {
-            for (TargetLocation target : locations) {
+            for (Location target : locations) {
                 String url = "https://api.open-meteo.com/v1/forecast?latitude=" + target.lat()
                         + "&longitude=" + target.lon()
                         + "&current=temperature_2m&temperature_unit=fahrenheit";
