@@ -1,0 +1,9 @@
+weather/provider/OpenMeteoWeatherProvider.class
+weather/model/Location.class
+weather/Main.class
+weather/provider/WeatherDataProvider.class
+weather/model/WeatherData.class
+weather/cli/WeatherCLI.class
+weather/service/WeatherService.class
+weather/model/WeatherComparison.class
+weather/provider/WeatherProviderException.class
