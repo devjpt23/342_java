@@ -1,0 +1,4 @@
+weather/OpenMeteoWeatherProviderTest.class
+weather/WeatherCLITest.class
+weather/TestWeatherDataProvider.class
+weather/WeatherServiceTest.class
